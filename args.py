@@ -5,7 +5,7 @@ def args_parser():
 	
 	# root setting
 	parser.add_argument('--device', type=str, default='cuda:0', help="Device to use for computation (e.g., 'cuda:0', 'cuda:1', or 'cpu')")
-	parser.add_argument('--data_dir', default='home/datasets/1', type=str)
+	parser.add_argument('--data_dir', default='./datasets/', type=str)
 	parser.add_argument('--dataset', default='AID', type=str, choices=['AID', 'NWPU-RESISC45'])
 	parser.add_argument('--class_list', default='dataset/splits-0.2/classInd.txt', type=str)
 	parser.add_argument('--train_list', default='dataset/splits-0.2/train_split.txt', type=str)
