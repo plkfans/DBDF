@@ -54,7 +54,7 @@ Change --mode to kd if you want to evaluate the distilled model (make sure the c
 The dataset splitting strategy and confusion matrix plotting are adapted from:
 [SKAL](https://github.com/hw2hwei/SKAL).
 
-The ensemble distillation strategy is inspired by:
+The distillation strategy is inspired by:
 [Self-distillation](https://github.com/ArchipLab-LinfengZhang/pytorch-self-distillation-final).
 
 We gratefully acknowledge the authors of these repositories for their open-source contributions, which provided valuable references and insights for this research.
