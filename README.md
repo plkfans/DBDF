@@ -29,10 +29,8 @@ python build_list.py --data_dir ./datasets/AID/images --out_dir ./datasets/AID/s
 ```
 This will create the split files under ./datasets/AID/splits-0.2.
 
-⚠️ Important: To avoid path-related errors (e.g., files not found or permission issues), it is strongly recommended to use absolute paths for --data_dir and --out_dir. For example:
-```bash
-python build_list.py --data_dir /absolute/path/to/datasets/AID/images --out_dir /absolute/path/to/datasets/AID/splits-0.2 --train_ratio 0.2
-```
+⚠️ Important: To avoid path-related errors (e.g., files not found or permission issues), it is strongly recommended to use absolute paths for --data_dir and --out_dir. 
+
 ## Training
 The training script (main.py) supports two modes:
 va (Vanilla) – Standard training of the CNN backbone without DBDF (baseline).
