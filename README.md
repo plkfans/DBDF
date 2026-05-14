@@ -1,7 +1,6 @@
 # DBDF
 
-This repository contains the PyTorch implementation of **DBDF** (Distillation-Based Deep Feature), a knowledge distillation method for remote sensing scene classification.  
-The baseline is a standard CNN (e.g., ResNet-18) trained on the AID dataset, and DBDF improves its performance via distillation.
+This is the Pytorch implementation of DBDF for remote sensing scene image classification
 
 ## Installation
 
@@ -18,7 +17,40 @@ pip install scikit-learn
 ## Dataset Preparation
 1. Download the AID dataset and place the images in ./datasets/AID/images/.
 The folder structure should be:
+```bash
 datasets/AID/images/
 ├── Airport/
 ├── BareLand/
 ├── ...
+```
+2. Split the dataset into training/validation lists:
+```bash
+python build_list.py --data_dir ./datasets/AID/images --out_dir ./datasets/AID/splits-0.2 --train_ratio 0.2
+```
+This will create the split files under ./datasets/AID/splits-0.2.
+
+## Training
+The training script (main.py) supports two modes:
+va (Vanilla) – Standard training of the CNN backbone without DBDF (baseline).
+kd (Knowledge Distillation) – Trains the CNN backbone with the proposed DBDF method.
+
+Examples:
+```bash
+# Vanilla training
+python -u main.py --device cuda:0 --arch resnet18 --mode va --epochs 50
+
+# Knowledge distillation with DBDF
+python -u main.py --device cuda:0 --arch resnet18 --mode kd --epochs 50 --temperature 3.0
+```
+
+## Evaluation
+Generate the confusion matrix after training:
+```bash
+python test.py --device cuda:0 --arch resnet18 --mode va
+```
+Change --mode to kd if you want to evaluate the distilled model (make sure the corresponding checkpoint exists).
+
+## Acknowledgements
+The dataset splitting strategy and confusion matrix plotting are adapted from SKAL{https://github.com/hw2hwei/SKAL}.
+
+We sincerely thank the authors of SKAL for making their dataset splitting strategy and confusion matrix plotting code publicly available. Their work has been instrumental in building this project.
