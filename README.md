@@ -51,6 +51,10 @@ python test.py --device cuda:0 --arch resnet18 --mode va
 Change --mode to kd if you want to evaluate the distilled model (make sure the corresponding checkpoint exists).
 
 ## Acknowledgements
-The dataset splitting strategy and confusion matrix plotting are adapted from SKAL{https://github.com/hw2hwei/SKAL}.
+The dataset splitting strategy and confusion matrix plotting are adapted from:
+[SKAL](https://github.com/hw2hwei/SKAL).
 
-We sincerely thank the authors of SKAL for making their dataset splitting strategy and confusion matrix plotting code publicly available. Their work has been instrumental in building this project.
+The ensemble distillation strategy is inspired by:
+[Self-distillation](https://github.com/ArchipLab-LinfengZhang/pytorch-self-distillation-final).
+
+We gratefully acknowledge the authors of these repositories for their open-source contributions, which provided valuable references and insights for this research.
